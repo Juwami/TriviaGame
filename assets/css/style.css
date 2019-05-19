@@ -3,5 +3,9 @@ body {
 }
 
 .container {
-    background-color: white;
+    background-color: peru;
+}
+
+p, input {
+    font-size: 22px;
 }

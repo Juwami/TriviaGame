@@ -1,4 +1,5 @@
-let time = 30
+let time = 5
+let intervalId = 0
 
 window.onload = function () {
     $('.timer').text('00:30')
@@ -40,7 +41,7 @@ function count() {
     console.log(time)
 
     if (time === 0) {
+        clearInterval(intervalId)
         endGame()
-        clearInterval()
     }
 }

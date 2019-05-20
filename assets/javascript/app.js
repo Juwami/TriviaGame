@@ -1,10 +1,6 @@
 let time = 12
 let intervalId = 0
 let questionNum = $('.question').length
-// not correct code, need to reach out to TAs or class
-let questionCorrect = $('.correct :input[type="radio"]:checked').length
-
-console.log(questionCorrect)
 
 window.onload = function () {
     $('.timer').text('00:30')
@@ -16,7 +12,6 @@ function start() {
 }
 
 function endGame() {
-    console.log(questionCorrect)
     checkAnswer()
     $('.triviaQuestions').empty()
 
@@ -52,5 +47,6 @@ function count() {
 }
 
 function checkAnswer() {
-
+    let questionCorrect = $('input[type="radio"]:checked.correct').length
+    console.log('test', questionCorrect)
 }

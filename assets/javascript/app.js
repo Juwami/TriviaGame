@@ -1,18 +1,20 @@
 let time = 30
 let intervalId = 0
+let questionNum = $('.question').length
+
+console.log(questionNum)
 
 window.onload = function () {
     $('.timer').text('00:30')
     start()
 }
 
-
-
 function start() {
-        intervalId = setInterval(count, 1000)
+    intervalId = setInterval(count, 1000)
 }
 
 function endGame() {
+    checkAnswer()
     $('.triviaQuestions').empty()
 
 }
@@ -44,4 +46,8 @@ function count() {
         clearInterval(intervalId)
         endGame()
     }
+}
+
+function checkAnswer() {
+
 }

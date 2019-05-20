@@ -1,4 +1,4 @@
-let time = 30
+let time = 2
 let intervalId = 0
 let questionNum = $('.question').length
 
@@ -12,9 +12,9 @@ function start() {
 }
 
 function endGame() {
-    checkAnswer()
     $('.triviaQuestions').empty()
-
+    $('.triviaQuestions').append('<p>')
+    $('p').text('You have answered ' + checkAnswer() + ' out of ' + questionNum + ' questions correct!')
 }
 
 function timeConverter(t) {
@@ -49,4 +49,7 @@ function count() {
 function checkAnswer() {
     let questionCorrect = $('input[type="radio"]:checked.correct').length
     console.log('test', questionCorrect)
+    return questionCorrect
 }
+
+console.log(checkAnswer())

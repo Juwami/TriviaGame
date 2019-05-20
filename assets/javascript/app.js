@@ -1,4 +1,4 @@
-let time = 5
+let time = 30
 let intervalId = 0
 
 window.onload = function () {

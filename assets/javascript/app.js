@@ -1,4 +1,4 @@
-let time = 12
+let time = 30
 let intervalId = 0
 let questionNum = $('.question').length
 

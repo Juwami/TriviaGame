@@ -12,9 +12,10 @@ function startTimer() {
 }
 
 function endGame() {
+    let questionsCorrect = checkAnswer()
     $('.triviaQuestions').empty()
     $('.triviaQuestions').append('<p>')
-    $('p').text('You have answered ' + checkAnswer() + ' out of ' + questionNum + ' questions correct!')
+    $('p').text('You have answered ' + questionsCorrect + ' out of ' + questionNum + ' questions correct!')
     $('.triviaQuestions').append('<button>')
     $('button').text('Restart Game?')
 }
@@ -57,7 +58,7 @@ function checkAnswer() {
 console.log(checkAnswer())
 
 //reset function does not work, button is suppose to click and revert. Might not work because I did .empty()?
-$('button').click(function() {
-    $('.triviaQuestions').empty()
-    $('.triviaQuestions').append('.container')
-})
+// $('button').click(function() {
+//     $('.triviaQuestions').empty()
+//     $('.triviaQuestions').append('.container')
+// })

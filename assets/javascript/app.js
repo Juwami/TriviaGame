@@ -1,9 +1,9 @@
-let time = 30
+let time = 60  
 let intervalId = 0
 let questionNum = $('.question').length
 
 window.onload = function () {
-    $('.timer').text('00:30')
+    $('.timer').text('01:00')
     startTimer()
 }
 
@@ -13,11 +13,36 @@ function startTimer() {
 
 function endGame() {
     let questionsCorrect = checkAnswer()
-    $('.triviaQuestions').empty()
-    $('.triviaQuestions').append('<p>')
-    $('p').text('You have answered ' + questionsCorrect + ' out of ' + questionNum + ' questions correct!')
-    $('.triviaQuestions').append('<button>')
-    $('button').text('Restart Game?')
+    let questionsWrong = checkIncorrectAnswer()
+    $('.triviaQuestions').hide()
+
+    let $restartArea = $('.restartArea')
+    // display correct answers
+    $restartArea
+        .append(
+            $('<p>')
+            .text('You have answered ' + questionsCorrect + ' out of ' + questionNum + ' questions correct!'),
+            $('<p>')
+            .text('You have answered ' + questionsWrong + ' out of ' + questionNum + ' questions incorrect!')
+        )
+
+
+    // dispaly wrong answers
+
+
+    // add a restart button
+    let $restartBtn = $('<button>')
+        .text('Restart Game?')
+        .on('click', restart)
+
+    $restartArea.append($restartBtn)
+}
+
+function restart() {
+    $('.triviaQuestions').show()
+    time = 60
+    startTimer()
+    $('.restartArea').empty()
 }
 
 function timeConverter(t) {
@@ -51,8 +76,14 @@ function count() {
 
 function checkAnswer() {
     let questionCorrect = $('input[type="radio"]:checked.correct').length
-    console.log('test', questionCorrect)
+    console.log('right', questionCorrect)
     return questionCorrect
+}
+
+function checkIncorrectAnswer() {
+    let questionWrong = $('input[type="radio"]:checked.incorrect').length
+    console.log('wrong', questionWrong)
+    return questionWrong
 }
 
 console.log(checkAnswer())

@@ -12,6 +12,7 @@ function startTimer() {
 }
 
 function endGame() {
+    clearInterval(intervalId)
     let questionsCorrect = checkAnswer()
     let questionsWrong = checkIncorrectAnswer()
     $('.triviaQuestions').hide()
@@ -86,10 +87,6 @@ function checkIncorrectAnswer() {
     return questionWrong
 }
 
-console.log(checkAnswer())
-
-//reset function does not work, button is suppose to click and revert. Might not work because I did .empty()?
-// $('button').click(function() {
-//     $('.triviaQuestions').empty()
-//     $('.triviaQuestions').append('.container')
-// })
+$('#Submit').click(function() {
+    endGame()
+})

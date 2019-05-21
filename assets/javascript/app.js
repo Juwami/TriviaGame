@@ -1,13 +1,13 @@
-let time = 30
+let time = 2
 let intervalId = 0
 let questionNum = $('.question').length
 
 window.onload = function () {
     $('.timer').text('00:30')
-    start()
+    startTimer()
 }
 
-function start() {
+function startTimer() {
     intervalId = setInterval(count, 1000)
 }
 
@@ -15,6 +15,8 @@ function endGame() {
     $('.triviaQuestions').empty()
     $('.triviaQuestions').append('<p>')
     $('p').text('You have answered ' + checkAnswer() + ' out of ' + questionNum + ' questions correct!')
+    $('.triviaQuestions').append('<button>')
+    $('button').text('Restart Game?')
 }
 
 function timeConverter(t) {
@@ -53,3 +55,7 @@ function checkAnswer() {
 }
 
 console.log(checkAnswer())
+
+$('button').click(function() {
+    $('.triviaQuestions').reset()
+})

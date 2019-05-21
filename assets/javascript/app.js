@@ -40,6 +40,7 @@ function endGame() {
 }
 
 function restart() {
+    // $('input[type="radio"]:checked.correct').attr('checked',false);
     $('.triviaQuestions').show()
     time = 60
     startTimer()

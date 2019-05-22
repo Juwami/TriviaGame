@@ -33,8 +33,9 @@ function endGame() {
 }
 
 function restart() {
-    // $('input[type="radio"]:checked.correct').attr('checked',false);
     $('.triviaQuestions').show()
+    //clear out radio button answers
+    $('input[type="radio"]:checked').prop('checked', false)
     time = 60
     startTimer()
     $('.restartArea').empty()

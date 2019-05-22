@@ -1,4 +1,4 @@
-let time = 60  
+let time = 60
 let intervalId = 0
 let questionNum = $('.question').length
 
@@ -17,23 +17,16 @@ function endGame() {
     let questionsWrong = checkIncorrectAnswer()
     $('.triviaQuestions').hide()
 
-    let $restartArea = $('.restartArea')
-    // display correct answers
+    let $restartArea = $('.restartArea').addClass('d-flex justify-content-center')
+    let $divOne = $('<div>').addClass('col-12 text-center').text('You have answered ' + questionsCorrect + ' out of ' + questionNum + ' questions correct!')
+    let $divTwo = $('<div>').addClass('col-12 text-center').text('You have answered ' + questionsWrong + ' out of ' + questionNum + ' questions incorrect!')
+
     $restartArea
-        .append(
-            $('<p>')
-            .text('You have answered ' + questionsCorrect + ' out of ' + questionNum + ' questions correct!'),
-            $('<p>')
-            .text('You have answered ' + questionsWrong + ' out of ' + questionNum + ' questions incorrect!')
-        )
-
-
-    // dispaly wrong answers
-
+        .append($divOne)
+        .append($divTwo)
 
     // add a restart button
-    let $restartBtn = $('<button>')
-        .text('Restart Game?')
+    let $restartBtn = $('<button>').text('Restart Game?')
         .on('click', restart)
 
     $restartArea.append($restartBtn)
@@ -88,6 +81,6 @@ function checkIncorrectAnswer() {
     return questionWrong
 }
 
-$('#Submit').click(function() {
+$('#Submit').click(function () {
     endGame()
 })
